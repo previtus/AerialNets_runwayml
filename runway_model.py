@@ -14,16 +14,15 @@ import os.path
 from os import path
 
 
-
-
-@runway.setup
+@runway.setup(options={'checkpoint': runway.file(extension='.h5')})
 def setup():
-  load_from = "model_UNet-Resnet34_DSM_in01_95percOfTrain_8batch_100ep_dsm01proper.h5"
-  if not path.exists(load_from):
-    print("downloading weights!")
-    url = "https://www.dropbox.com/s/2260vnfpbqalwgh/model_UNet-Resnet34_DSM_in01_95percOfTrain_8batch_100ep_dsm01proper.h5?dl=1"
-    import urllib.request
-    data = urllib.request.urlretrieve(url, load_from)
+  #load_from = "model_UNet-Resnet34_DSM_in01_95percOfTrain_8batch_100ep_dsm01proper.h5"
+  load_from = opts['checkpoint']
+  #if not path.exists(load_from):
+  #  print("downloading weights!")
+  #  url = "https://www.dropbox.com/s/2260vnfpbqalwgh/model_UNet-Resnet34_DSM_in01_95percOfTrain_8batch_100ep_dsm01proper.h5?dl=1"
+  #  import urllib.request
+  #  data = urllib.request.urlretrieve(url, load_from)
 
   model = load_model(load_from)
   return model
