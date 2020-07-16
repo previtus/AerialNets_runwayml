@@ -3,8 +3,11 @@ cuda: 10.2
 entrypoint: python runway_model.py
 framework: tensorflow
 spec:
-    cpu: False
+    cpu: True
     gpu: True
 
 build_steps:
   - pip install -r requirements.txt
+  - pip install tensorflow==1.14.0
+  - if_gpu: pip install tensorflow-gpu==1.14.0
+
