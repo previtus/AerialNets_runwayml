@@ -15,7 +15,7 @@ from os import path
 
 
 @runway.setup(options={'checkpoint': runway.file(extension='.h5')})
-def setup():
+def setup(opts):
   #load_from = "model_UNet-Resnet34_DSM_in01_95percOfTrain_8batch_100ep_dsm01proper.h5"
   load_from = opts['checkpoint']
   #if not path.exists(load_from):
