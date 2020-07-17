@@ -1,5 +1,5 @@
 python: 3.6
-cuda: 10.0
+cuda: 10.0 # Which NVIDIA CUDA version to use. Supported versions include 10.2, 10, 9.2, and 9.
 entrypoint: python runway_model.py
 spec:
     cpu: True
